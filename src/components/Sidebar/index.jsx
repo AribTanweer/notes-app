@@ -1,36 +1,31 @@
-import { Link,NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import { Home, Archive, Star, Trash2 } from 'lucide-react';
 
-export const SideBar = () =>{
-
-    const getStyles=({isActive}) => {
-        const styles='flex align-center gap-1 px-2 py-1 rounded-tr-full rounded-br-full'
-        return isActive ? `text-slate-50 bg-indigo-800 ${styles}`: `hover:bg-indigo-800 hover:text-slate-50 ${styles}`;
+export const SideBar = () => {
+    const getStyles = ({ isActive }) => {
+        const baseStyles = 'flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-300 font-medium';
+        return isActive 
+            ? `${baseStyles} bg-primary/10 text-primary shadow-sm`
+            : `${baseStyles} text-slate-600 hover:bg-slate-100 hover:text-slate-900`;
     }
 
-    return(
-        <aside className='flex flex-col gap-3 border-r-2 border-gray-100 w-[150px] h-screen p-3'>
+    return (
+        <aside className='hidden md:flex flex-col gap-2 w-64 h-[calc(100vh-73px)] p-4 sticky top-[73px]'>
             <NavLink className={getStyles} to='/'>
-            <span className="material-icons-outlined">
-                home
-            </span><span>Home</span>
-            </NavLink>
-            <NavLink className={getStyles} to='/archive'>
-            <span className="material-icons-outlined">
-            archive
-            </span>
-            <span>Archive</span>
+                <Home size={20} />
+                <span>Notes</span>
             </NavLink>
             <NavLink className={getStyles} to='/important'>
-            <span className="material-icons-outlined">
-            label_important
-            </span>
-            <span>Important</span>
+                <Star size={20} />
+                <span>Important</span>
+            </NavLink>
+            <NavLink className={getStyles} to='/archive'>
+                <Archive size={20} />
+                <span>Archive</span>
             </NavLink>
             <NavLink className={getStyles} to='/bin'>
-            <span className="material-icons-outlined">
-            delete
-            </span>
-            <span>Bin</span>
+                <Trash2 size={20} />
+                <span>Trash</span>
             </NavLink>
         </aside>
     )
