@@ -1,6 +1,7 @@
 import { Fragment, useState } from 'react';
 import { Navbar } from '../../components/Navbar';
 import { SideBar } from '../../components/Sidebar';
+import { MobileNav } from '../../components/MobileNav';
 import { useNotes } from "../../context/notes-context";
 import { NotesCard } from "../../components/NotesCard";
 import { EmptyState } from "../../components/EmptyState";
@@ -24,7 +25,7 @@ export const Important = () => {
             <Navbar />
             <main className="flex">
                 <SideBar />
-                <div className="flex-1 p-4 sm:p-6 md:p-8 lg:p-10 overflow-y-auto h-[calc(100vh-73px)]" style={{ backgroundColor: 'var(--bg-primary)' }}>
+                <div className="flex-1 p-4 sm:p-6 md:p-8 lg:p-10 overflow-y-auto h-[calc(100vh-73px)] md:h-[calc(100vh-73px)] pb-20 md:pb-0" style={{ backgroundColor: 'var(--bg-primary)' }}>
                     <div className="max-w-7xl mx-auto">
                         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6 sm:mb-8">
                             <h2 className="text-xl sm:text-2xl font-bold flex items-center gap-2" style={{ color: 'var(--text-primary)' }}>
@@ -48,6 +49,7 @@ export const Important = () => {
                     </div>
                 </div>
             </main>
+            <MobileNav />
         </Fragment>
     );
 };

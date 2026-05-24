@@ -1,5 +1,6 @@
 import { Navbar } from "../../components/Navbar";
 import { SideBar } from "../../components/Sidebar";
+import { MobileNav } from "../../components/MobileNav";
 import { NotesCard } from "../../components/NotesCard";
 import { EmptyState } from "../../components/EmptyState";
 import { SortDropdown } from "../../components/SortDropdown";
@@ -42,7 +43,7 @@ export const Home = () => {
             <Navbar />
             <main className="flex">
                 <SideBar />
-                <div className="flex-1 p-4 sm:p-6 md:p-8 lg:p-10 overflow-y-auto h-[calc(100vh-73px)]" style={{ backgroundColor: 'var(--bg-primary)' }}>
+                <div className="flex-1 p-4 sm:p-6 md:p-8 lg:p-10 overflow-y-auto h-[calc(100vh-73px)] md:h-[calc(100vh-73px)] pb-20 md:pb-0" style={{ backgroundColor: 'var(--bg-primary)' }}>
                     <div className="max-w-7xl mx-auto flex flex-col items-center">
                         
                         {/* Note Input Area */}
@@ -121,6 +122,7 @@ export const Home = () => {
                     </div>
                 </div>
             </main>
+            <MobileNav />
         </Fragment>
     )
 }
