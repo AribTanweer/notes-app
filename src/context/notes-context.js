@@ -26,7 +26,7 @@ const NotesProvider = ({children}) => {
                 console.error("Failed to parse local storage data", error);
             }
         }
-    }, []);
+    }, [state]);
 
     // Save to local storage on change
     useEffect(() => {
